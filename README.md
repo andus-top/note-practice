@@ -1,6 +1,8 @@
 # note-practice
 2018.7-2019.1实习笔记
 
+博客地址：https://blog.csdn.net/github_33809414
+
 ```markdown
 ├── code 代码目录
 │   ├── note 代码工程
