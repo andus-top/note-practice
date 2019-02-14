@@ -7,6 +7,9 @@
 ├── code 代码目录
 │   ├── note 代码工程
 │   │   ├── bigdata 大数据相关代码
+│   │   │   ├── Hbase
+│   │   │   ├── Phoenix
+│   │   │   └── Spark
 │   │   ├── db 数据库的操作的简单封装
 │   │   ├── java java相关的一些坑
 │   │   ├── redis redis在springboot上的整合
