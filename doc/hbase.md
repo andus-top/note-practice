@@ -42,25 +42,25 @@
 
 8. 查询rowkey里面包含t1的:
 
-  import org.apache.hadoop.hbase.filter.CompareFilter
+     import org.apache.hadoop.hbase.filter.CompareFilter
 
-  import org.apache.hadoop.hbase.filter.SubstringComparator
+     import org.apache.hadoop.hbase.filter.SubstringComparator
 
-  import org.apache.hadoop.hbase.filter.RowFilter	
+     import org.apache.hadoop.hbase.filter.RowFilter	
 
-  scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'), SubstringComparator.new('t1'))}
+     scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'), SubstringComparator.new('t1'))}
 
 9. 匹配正则表达式：
 
-  import org.apache.hadoop.hbase.filter.RegexStringComparator
+     import org.apache.hadoop.hbase.filter.RegexStringComparator
 
-  import org.apache.hadoop.hbase.filter.CompareFilter
+     import org.apache.hadoop.hbase.filter.CompareFilter
 
-  import org.apache.hadoop.hbase.filter.SubstringComparator
+     import org.apache.hadoop.hbase.filter.SubstringComparator
 
-  import org.apache.hadoop.hbase.filter.RowFilter	
+     import org.apache.hadoop.hbase.filter.RowFilter	
 
-  scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'),RegexStringComparator.new('^user\d+\|ts\d+$'))}
+     scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'),RegexStringComparator.new('^user\d+\|ts\d+$'))}
 
 ​	
 
