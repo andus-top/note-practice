@@ -27,23 +27,40 @@
 - hbase shell filter
 
 1. 查看有哪些过滤器：show_filters
+
 2. 值等于2018的行：scan 'np:tb',FILTER=>"ValueFilter(=,'binary:2018')"
+
 3. 值包含2018的行：scan 'np:tb', FILTER=>"ValueFilter(=,'substring:2018')"
+
 4. 列为c1且值包含2018或者等于123：scan 'np:tb',FILTER=>"ColumnPrefixFilter('c1') AND （ValueFilter(=,'substring:2018') OR ValueFilter(=,'substring:123')"
+
 5. rowkey以test开头,前5条：scan 'np:tb', {FILTER=>"PrefixFilter('test')",LIMIT=>5}
+
 6. 从test1开始,找到所有的rowkey以test21开头的:scan 'np:tb', {STARTROW=>'test1', FILTER => "PrefixFilter ('test2')"}
+
 7. 从rowkey以test1开始,到test2结尾：scan 'np:tb', {STARTROW=>'test1', STOPROW=>'test2'}
+
 8. 查询rowkey里面包含t1的:
-	​	import org.apache.hadoop.hbase.filter.CompareFilter
-	​	import org.apache.hadoop.hbase.filter.SubstringComparator
-	​	import org.apache.hadoop.hbase.filter.RowFilter	
-	​	scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'), SubstringComparator.new('t1'))}
+
+  import org.apache.hadoop.hbase.filter.CompareFilter
+
+  import org.apache.hadoop.hbase.filter.SubstringComparator
+
+  import org.apache.hadoop.hbase.filter.RowFilter	
+
+  scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'), SubstringComparator.new('t1'))}
+
 9. 匹配正则表达式：
-	​	import org.apache.hadoop.hbase.filter.RegexStringComparator
-	​	import org.apache.hadoop.hbase.filter.CompareFilter
-	​	import org.apache.hadoop.hbase.filter.SubstringComparator
-	​	import org.apache.hadoop.hbase.filter.RowFilter	
-	​	scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'),RegexStringComparator.new('^user\d+\|ts\d+$'))}
+
+  import org.apache.hadoop.hbase.filter.RegexStringComparator
+
+  import org.apache.hadoop.hbase.filter.CompareFilter
+
+  import org.apache.hadoop.hbase.filter.SubstringComparator
+
+  import org.apache.hadoop.hbase.filter.RowFilter	
+
+  scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'),RegexStringComparator.new('^user\d+\|ts\d+$'))}
 
 ​	
 
