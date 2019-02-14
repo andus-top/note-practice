@@ -1,3 +1,4 @@
+- 版本：hbase-2.0.0
 - hbase区分大小写、建议hbase表名大写(与phoenix异步索引有关)
 - 常用操作
   - DDL
@@ -62,8 +63,8 @@
 
      scan 'np:tb', {FILTER => RowFilter.new(CompareFilter::CompareOp.valueOf('EQUAL'),RegexStringComparator.new('^user\d+\|ts\d+$'))}
 
-​	
+	​	
 
-​	
+	​	
 
-​	
+	​	
