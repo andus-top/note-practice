@@ -40,6 +40,9 @@ public class ApplicationContextProvider implements ApplicationContextAware, Serv
         ApplicationContextProvider.servletContext=servletContext;
     }
 
+    /**
+     * 通过beanName 获取bean
+     */
     public static <T>T getSpringBean(String springBeanName) {
         return (T)applicationContext.getBean(springBeanName);
     }
