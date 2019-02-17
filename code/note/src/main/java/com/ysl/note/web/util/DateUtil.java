@@ -46,7 +46,7 @@ public class DateUtil {
     public static SimpleDateFormat YYYYMMDD = new SimpleDateFormat("yyyy/MM/dd");
 
     /**
-     * 多少小时多少分中
+     * 多少小时多少分钟
      */
     public static String formatTime = "%s h %s m";
 
