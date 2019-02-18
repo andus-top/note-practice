@@ -1,4 +1,4 @@
-package com.ysl.note.web.util;
+package com.ysl.note.util;
 
 import jodd.util.StringUtil;
 import org.apache.commons.lang.StringUtils;
