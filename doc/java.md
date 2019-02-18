@@ -23,3 +23,7 @@
    Integer date1 = Integer.valueOf(new SimpleDateFormat(“yyyyMMdd”).format(new SimpleDateFormat(“yyyy-MM-dd”).parse("2018-08-31"))); 
 
    效率更高: "2018-08-30".compareTo("2018-08-31")
+
+5. ```jsp
+   <c:if test="${model.statType == 4}"> 不是 <c:if test="${model.statType} == 4">
+   ```
