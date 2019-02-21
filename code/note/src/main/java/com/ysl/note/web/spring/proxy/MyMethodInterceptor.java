@@ -31,7 +31,7 @@ public class MyMethodInterceptor implements MethodInterceptor {
             // FIXME：规则自定义
             if(args[i] instanceof Result){
                 Result res = (Result) args[i];
-                result = testService.getValidParm(res);
+                result = testService.getValidParam(res);
                 flag = i;
             }
         }

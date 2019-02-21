@@ -11,5 +11,5 @@ public interface TestService {
     /**
      * 防止MethodInterceptor类报错
      */
-    Result getValidParm(Result res);
+    Result getValidParam(Result res);
 }
