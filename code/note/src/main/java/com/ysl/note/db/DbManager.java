@@ -205,6 +205,31 @@ public class DbManager implements Serializable {
         conn.setAutoCommit(true);
         return arr.length;
     }
+	
+	/**
+     * 批量执行sql语句（预编译方式）
+     * @param sql
+     * @param params 参数
+     * @return
+     * @throws Exception
+     */
+    public int execute(String sql, List<List<Object>> params) throws Exception {
+        if (conn.isClosed()) {
+            initDb(this.config);
+        }
+        PreparedStatement pstmt = conn.prepareStatement(sql);
+        conn.setAutoCommit(false);
+        for (List<Object> objs : params) {
+            for (int i = 0; i < objs.size(); i++) {
+                pstmt.setObject(i + 1, objs.get(i));
+            }
+            pstmt.addBatch();
+        }
+        int[] arr = pstmt.executeBatch();
+        conn.commit();
+        conn.setAutoCommit(true);
+        return arr.length;
+    }
 
     /**
      * 执行单条sql语句
