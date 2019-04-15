@@ -54,7 +54,8 @@
 
   - 覆盖索引
 
-    - 创建：create index 索引名 on 表名(where条件中的字段) include(select后面跟的需要显示的字段)
+    - 创建：create index 索引名 on 表名(where条件中的字段) include(select后面跟的需要显示的字段) 
+    - 索引优化：create index 索引名 on 表名(where条件中的字段) include(select后面跟的需要显示的字段) SALT_BUCKETS=region数量, DATA_BLOCK_ENCODING='NONE';// 取消hbase对数据的编码
 
   - 函数索引，根据表达式创建索引，适用于对查询表，过滤条件是表达式的表创建索引
 
