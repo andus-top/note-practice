@@ -82,6 +82,8 @@
   - phoenix 对空串""处理成了null
 
   - 当数据量很大时，phoenix 异步建立二级索引，报错，要求hbase表名大写
+  
+  - phoenix 语法上可以在视图上创建索引，但是索引不会更新。相当于不能再视图上创建索引。必须通过phoenix表更新数据，索引数据才会同步更新。
 
   - phoenix区分大小写，不管输入大写还是小写，phoenix都会把它转化成大写。如果要小写的话必须加上""
 
@@ -94,7 +96,7 @@
   - hbase新建命名空间后，不能直接通过phoenix创建该命名空间下的表
 
     hbase中的自定义namespace，不仅仅使用default，那么在phoenix中与之对应的是schema的概念 所以，需要在phoenix先执行create schema 命名空间名称，再执行建表语句
-
+  
   - phoenix 查询语句细节：
 
     当auto commit被打开并且select子句没有聚合时，写入目标表这个过程是在server端完成的，否则查询的数据会先缓存在客户端再写入目标表中（phoenix.mutate.upsertBatchSize表示从客户端一次commit的行数，默认10000行）。
