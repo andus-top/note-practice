@@ -1,10 +1,12 @@
 - 版本：hbase-2.0.0
 - hbase区分大小写、建议hbase表名大写(与phoenix异步索引有关)
+- hbase shell
+  - 启动：bin/start-hbase.sh，bin/hbase shell
 - 常用操作
   - DDL
     - 创建表：create '表名','列簇1','列簇2'
     - 查看表结构：describe '表名'
-    - 增加2个列簇：disable '表名'、alter '表名' {NAME=>'列簇',VERSIONS=>3},{NAME=>'列簇',VERSIONS=>3}、enable '表名'
+    - 增加2个列簇：disable '表名'、alter '表名',{NAME=>'列簇',VERSIONS=>3},{NAME=>'列簇',VERSIONS=>3}、enable '表名'
     - 删除列簇：disable '表名'、alter '表名' NAME=>'列簇',METHOD=>'delete'
     - 删除表：disable '表名'、drop '表名'
     - 创建命名空间：create_namespace '名称'
