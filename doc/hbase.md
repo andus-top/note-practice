@@ -6,8 +6,15 @@
   - DDL
     - 创建表：create '表名','列簇1','列簇2'
     - 查看表结构：describe '表名'
-    - 增加2个列簇：disable '表名'、alter '表名',{NAME=>'列簇',VERSIONS=>3},{NAME=>'列簇',VERSIONS=>3}、enable '表名'
-    - 删除列簇：disable '表名'、alter '表名' NAME=>'列簇',METHOD=>'delete'
+    - 增加2个列簇：
+    disable '表名'、
+
+    alter '表名', {NAME=>'列簇',VERSIONS=>3},{NAME=>'列簇',VERSIONS=>1}、enable '表名'
+
+    或
+
+    alter '表名', NAME=>'列簇',VERSIONS=>3
+    - 删除列簇：disable '表名'、alter '表名',NAME=>'列簇',METHOD=>'delete'
     - 删除表：disable '表名'、drop '表名'
     - 创建命名空间：create_namespace '名称'
     - 删除命名空间：drop_namespace '名称'
